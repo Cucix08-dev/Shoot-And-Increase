@@ -32,6 +32,8 @@ h1#title-page{
     
     text-align: center;
     font-size: clamp(1rem,5vw,4rem);
+
+    color: white;
 }
 
 h1#title-page::selection,a.nav-button::selection{
