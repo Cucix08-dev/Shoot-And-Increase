@@ -1,0 +1,23 @@
+header{
+    background-color: rgb(253, 223, 89);
+    top: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+}
+
+ul{
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    margin-left: -40px;
+}
+
+li{
+    margin: 80px;
+    font-size: clamp(1rem,10vw,2rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
