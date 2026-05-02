@@ -1,9 +1,25 @@
+body{
+    top: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    overflow: hidden;
+}
+
 header{
     background-color: rgb(225, 225, 225);
     top: 0;
     left: 0;
     right: 0;
     position: absolute;
+}
+
+main#game{
+    margin-top: 25dvh;
+    height: 70dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 ul{
@@ -20,4 +36,39 @@ li{
     align-items: center;
     justify-content: center;
     text-align: center;
+}
+
+#start{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+
+#timer{
+    color: white;
+    font-size: clamp(1rem,10vw,4rem);
+
+}
+
+.hidden{
+    display: none !important;
+}
+
+.monster-box{
+    width: 64px;
+    height: 64px;
+    position: absolute;
+    top: 0;
+    background-color: white;
+}
+
+@media (orientation: portrait) {
+    ul{
+        flex-direction: column;
+    }
+
+    li{
+        margin: 10px;
+    }
 }

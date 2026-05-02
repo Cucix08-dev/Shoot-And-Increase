@@ -25,3 +25,21 @@ ul{
     list-style: none;
     padding: 0;
 }
+
+.button{
+    padding: 6vw;
+    
+    background-color: rgba(0, 0, 0, 0.31);
+    
+    border-radius: 20px;
+    border: 5px solid white;
+
+    transition: transform ease 0.2s;
+
+    font-size: clamp(1rem,10vw,2rem);
+    color: white;
+}
+
+.button:hover{
+    transform: scale(1.25);
+}
