@@ -1,0 +1,65 @@
+@font-face {
+    font-family: 'pixel';
+    src: url("/fonts/Pixel.ttf") format("truetype");
+    font-weight: normal;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: rgb(131, 85, 5);
+    font-family: 'pixel';
+    cursor: url("/imgs/cursor-32.png") 16 16, auto;
+}
+
+.button{
+    padding: 6vw;
+    background-color: rgba(0, 0, 0, 0.31);
+    border-radius: 20px;
+    border: 5px solid white;
+    transition: transform ease 0.2s;
+}
+
+.button:hover{
+    transform: scale(1.25);
+}
+
+ul{
+    list-style: none;
+}
+
+a.nav-button{
+    font-size: clamp(1rem,10vw,2rem);
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    cursor: url("/imgs/cursor-32.png") 16 16, auto;
+}
+
+header{
+    width: inherit;
+    height: inherit;
+}
+
+h1#title-page{
+    width: inherit;
+    padding: 10vh 0;
+    text-align: center;
+    font-size: clamp(1rem,5vw,4rem);
+}
+
+h1#title-page::selection,a.nav-button::selection{
+    background: transparent;
+    color: inherit;
+}
+
+nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: inherit;
+    height: 35vh;
+}
