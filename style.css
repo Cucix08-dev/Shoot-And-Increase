@@ -17,7 +17,7 @@ body{
     
     font-family: 'pixel';
 
-    cursor: url("./imgs/cursor-64.png"), auto;
+    cursor: url("./imgs/cursor-64.png") 32 32, auto;
 }
 
 

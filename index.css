@@ -3,7 +3,7 @@ a.nav-button{
     text-decoration: none;
     color: rgb(255, 255, 255);
     
-    cursor: url("./imgs/cursor-64.png"), auto;
+    cursor: url("./imgs/cursor-64.png") 32 32, auto;
 }
 
 header{
