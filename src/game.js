@@ -18,6 +18,9 @@ let livesTOT = 5;
 const header = document.querySelector("header");
 const heightHeader = header.offsetHeight;
 
+const shotsIter = document.getElementById("shots");
+let shots = 0;
+
 start.addEventListener("click", () => {
 
     let gameOver = false;
@@ -28,6 +31,7 @@ start.addEventListener("click", () => {
     livesTOT = 5;
     monstersKilled = 0;
     timeValue = 0;
+    shots = 0;
 
     lives.textContent = livesTOT;
     monsterKilledDiv.textContent = monstersKilled;
@@ -59,7 +63,7 @@ start.addEventListener("click", () => {
 
     function endGame() {
         monsters.forEach(m => m.remove());
-        monsters = [];
+        monsters.length = 0;
         gameOver = true;
         start.classList.remove("hidden");
     }
@@ -77,7 +81,10 @@ start.addEventListener("click", () => {
         const y = heightHeader + (Math.random() * (heightMain - 64));
 
         monster.style.transform = `translate(${x}px, ${y}px)`;
-
+        
+        const bgmonster = document.createElement("div");
+        bgmonster.classList.add("background-monster-box");
+        monster.appendChild(bgmonster)
         main.appendChild(monster);
         monsters.push(monster);
 
@@ -86,6 +93,7 @@ start.addEventListener("click", () => {
             monster.remove();
             monsterKilledDiv.textContent = ++monstersKilled;
         });
+
 
         setTimeout(() => {
             if (monster.parentNode && !gameOver) {
@@ -105,5 +113,11 @@ start.addEventListener("click", () => {
 
         setTimeout(spawn, count);
     }
+
+    
+    main.addEventListener("click", () => {
+        if (!gameOver) shotsIter.textContent = String(++shots);
+    });
+
 
 });

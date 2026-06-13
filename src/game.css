@@ -59,8 +59,19 @@ li{
     width: 64px;
     height: 64px;
     position: absolute;
-    top: 0;
     background-color: white;
+    top: 0;
+    border-radius: 50%;
+}
+
+.background-monster-box{
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    background-image: url('../imgs/target.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 @media (orientation: portrait) {
