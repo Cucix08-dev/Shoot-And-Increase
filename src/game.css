@@ -74,6 +74,12 @@ li{
     background-position: center;
 }
 
+.special {
+    filter: sepia(90%) saturate(1500%) hue-rotate(15deg) brightness(160%) contrast(140%);
+}
+
+
+
 @media (orientation: portrait) {
     ul{
         flex-direction: column;

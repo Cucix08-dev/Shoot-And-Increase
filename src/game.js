@@ -8,9 +8,9 @@ const main = document.getElementById("game");
 const widthMain = main.offsetWidth;
 const heightMain = main.offsetHeight;
 
-const monsterKilledDiv = document.getElementById("monster-killed");
+const pointsContainer = document.getElementById("points");
 let monsters = [];
-let monstersKilled = 0;
+let points = 0;
 
 const lives = document.getElementById("lives");
 let livesTOT = 5;
@@ -21,6 +21,8 @@ const heightHeader = header.offsetHeight;
 const shotsIter = document.getElementById("shots");
 let shots = 0;
 
+let specialTarget = 0;
+
 start.addEventListener("click", () => {
 
     let gameOver = false;
@@ -29,12 +31,13 @@ start.addEventListener("click", () => {
     start.classList.add("hidden");
 
     livesTOT = 5;
-    monstersKilled = 0;
+    points = 0;
     timeValue = 0;
     shots = 0;
+    specialTarget = 0;
 
     lives.textContent = livesTOT;
-    monsterKilledDiv.textContent = monstersKilled;
+    pointsContainer.textContent = points;
     time.textContent = timeValue;
 
     let timerValue = 3;
@@ -75,25 +78,37 @@ start.addEventListener("click", () => {
         const monster = document.createElement("div");
         monster.classList.add("monster-box");
 
+        specialTarget++;
+        const isSpecial = (specialTarget === 6);
+
+        if (isSpecial) monster.classList.add("special");
+
         let x = (Math.random() * widthMain) - widthMain / 2 - 32;
         x = (x <= -widthMain / 2 + 32) ? -widthMain / 2 + 48 : x;
 
         const y = heightHeader + (Math.random() * (heightMain - 64));
-
         monster.style.transform = `translate(${x}px, ${y}px)`;
-        
+
         const bgmonster = document.createElement("div");
         bgmonster.classList.add("background-monster-box");
-        monster.appendChild(bgmonster)
+        monster.appendChild(bgmonster);
         main.appendChild(monster);
         monsters.push(monster);
 
         monster.addEventListener("click", () => {
             if (gameOver) return;
-            monster.remove();
-            monsterKilledDiv.textContent = ++monstersKilled;
-        });
 
+            monster.remove();
+
+            if (isSpecial) {
+                points += 5;
+                specialTarget = 0;
+            } else {
+                points++;
+            }
+
+            pointsContainer.textContent = points;
+        });
 
         setTimeout(() => {
             if (monster.parentNode && !gameOver) {
@@ -113,6 +128,7 @@ start.addEventListener("click", () => {
 
         setTimeout(spawn, count);
     }
+
 
     
     main.addEventListener("click", () => {
